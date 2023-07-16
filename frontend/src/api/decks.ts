@@ -57,3 +57,12 @@ export const createCard = async(deckId: string, text: string) => {
     console.log("api post card", json);
     return json;
 }
+
+export const deleteCard = async(deckId: string, cardIndex: string) => {
+    const response = await fetch(`${apiUrl}/decks/${deckId}/cards/${cardIndex}`, {
+        method: "DELETE"
+    });
+    const json = await response.json();
+    console.log("api delete card", json);
+    return json;
+}

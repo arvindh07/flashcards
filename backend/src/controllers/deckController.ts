@@ -51,3 +51,16 @@ export const getSingleDeck = async (req: Request, res: Response) => {
     }
     res.status(200).json(deck);
 }
+
+export const deleteCard = async (req: Request, res: Response) => {
+    const {deckId, cardIndex} = req.params;    
+    const deck: any = await Deck.findById(deckId);
+    if(!deck){
+        return res.status(400).json({
+            "message": "Not deck found"
+        })
+    }
+    deck.cards.splice(cardIndex, 1);
+    await deck.save();
+    res.status(200).json({deck: deck});
+}
