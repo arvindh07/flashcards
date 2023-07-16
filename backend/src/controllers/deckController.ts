@@ -3,7 +3,6 @@ import Deck from "../models/Deck";
 
 export const createDeck = async (req: Request, res: Response) => {
     const {title} = req.body;
-    console.log(req.body);
     
     if(!title){
         return res.status(400).json({
@@ -18,6 +17,6 @@ export const createDeck = async (req: Request, res: Response) => {
 }
 
 export const getDecks = async (req: Request,res: Response) => {
-    const decks = await Deck.find();
+    const decks = await Deck.find().sort({ createdAt: -1 });
     res.status(200).json(decks);
 }

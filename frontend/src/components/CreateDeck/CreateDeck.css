@@ -32,3 +32,29 @@
 .create_deck button:hover{
     background-color: rgba(65, 105, 225,0.5);
 }
+.error{
+    color: red;
+    font-size: 1.2em;
+}
+.display__decks{
+    width:70%;
+    margin: 2em auto;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap:30px;
+}
+.deck{
+    margin-top: 2em;
+    border-radius: 12px;
+    background-color:rgba(65, 105, 225,0.8);
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.deck:hover{
+    transform: scale(1.02);
+    box-shadow: rgba(249, 246, 246, 0.6) 0px 5px 35px;
+}
