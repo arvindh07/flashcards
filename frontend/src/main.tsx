@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import ErrorPage from './components/ErrorPage/ErrorPage.tsx';
 import Navbar from './components/Navbar/Navbar.tsx';
+import Cards from './components/Cards/Cards.tsx';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement: <ErrorPage />
   },
+  {
+    path: "/decks/:deckId",
+    element: <Cards />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

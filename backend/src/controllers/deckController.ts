@@ -40,3 +40,14 @@ export const createCard = async (req: Request, res: Response) => {
     await deck.save();
     res.status(200).json(deck);
 }
+
+export const getSingleDeck = async (req: Request, res: Response) => {
+    const {deckId} = req.params;
+    const deck = await Deck.findById(deckId);
+    if(!deck){
+        return res.status(400).json({
+            "message": "Not deck found"
+        })
+    }
+    res.status(200).json(deck);
+}

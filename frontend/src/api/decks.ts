@@ -4,6 +4,7 @@ export interface DeckInterface{
     _id: string;
     title: string;
     __v: number;
+    cards: any;
     createdAt: string;
     modifiedAt: string;
 }
@@ -34,5 +35,12 @@ export const deleteDeck = async(id: string) => {
     });
     const json = await response.json();
     console.log("api delete", json);
+    return json;
+}
+
+export const getDeck = async(id:string) => {
+    const response = await fetch(`${apiUrl}/decks/${id}`);
+    const json = await response.json();
+    console.log("api get single ", json);
     return json;
 }

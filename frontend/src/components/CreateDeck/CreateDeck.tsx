@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import "./CreateDeck.css"
 import { DeckInterface, createDeck, deleteDeck, getDecks } from "../../api/decks";
+import { useNavigate } from "react-router-dom";
 
 const CreateDeck = () => {
     const [title, setTitle] = useState<string>("");
     const [decks, setDecks] = useState<any>([]);
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
 
     const handleCreateDeck = async () => {
         if (title.length === 0) {
@@ -22,6 +24,10 @@ const CreateDeck = () => {
     const handleDeleteDeck = async (deleteId: string) => {
         await deleteDeck(deleteId);
         setDecks(decks?.filter((d: DeckInterface) => d._id !== deleteId))
+    }
+
+    const handleNavigate = (deckId: string) => {
+        navigate(`decks/${deckId}`);
     }
 
     useEffect(() => {
@@ -49,7 +55,7 @@ const CreateDeck = () => {
             <div className="display__decks">
                 {decks?.map((deck: DeckInterface) => {
                     return (
-                        <div key={deck._id} className="deck">
+                        <div key={deck._id} className="deck" onClick={() => handleNavigate(deck._id)}>
                             <svg
                                 className="delete"
                                 onClick={() => handleDeleteDeck(deck._id)} 

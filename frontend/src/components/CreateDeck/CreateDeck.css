@@ -70,3 +70,25 @@
     right:20px;
     cursor: pointer;
 }
+.cards__header{
+    /* border: 2px solid white; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+.cards__header a{
+    margin-right: auto;
+    /* border: 1px solid red; */
+    width:30%;
+    font-size: 1.2em;
+}
+.title{
+    width: 70%;
+    font-size: 2.5em;
+    text-align: center;
+    /* border: 1px solid yellow; */
+}
