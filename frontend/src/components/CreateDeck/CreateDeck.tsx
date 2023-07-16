@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./CreateDeck.css"
-import { DeckInterface, createDeck, getDecks } from "../../api/decks";
+import { DeckInterface, createDeck, deleteDeck, getDecks } from "../../api/decks";
 
 const CreateDeck = () => {
     const [title, setTitle] = useState<string>("");
@@ -19,8 +19,9 @@ const CreateDeck = () => {
         setDecks([deck, ...decks]);
     }
 
-    const handleDeleteDeck = (deleteId: string) => {
-
+    const handleDeleteDeck = async (deleteId: string) => {
+        await deleteDeck(deleteId);
+        setDecks(decks?.filter((d: DeckInterface) => d._id !== deleteId))
     }
 
     useEffect(() => {

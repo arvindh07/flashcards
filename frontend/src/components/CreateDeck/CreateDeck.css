@@ -43,7 +43,7 @@
     width:70%;
     margin: 2em auto;
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
     gap:30px;
 }
 .deck{
@@ -54,7 +54,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: all 0.4s;
     position: relative;
 }
@@ -68,4 +68,5 @@
     position: absolute;
     top:20px;
     right:20px;
+    cursor: pointer;
 }

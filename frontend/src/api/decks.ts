@@ -27,3 +27,12 @@ export const getDecks = async() => {
     console.log("api get", json);
     return json;
 }
+
+export const deleteDeck = async(id: string) => {
+    const response = await fetch(`${apiUrl}/decks/delete/${id}`, {
+        method: "DELETE"
+    });
+    const json = await response.json();
+    console.log("api delete", json);
+    return json;
+}

@@ -20,3 +20,9 @@ export const getDecks = async (req: Request,res: Response) => {
     const decks = await Deck.find().sort({ createdAt: -1 });
     res.status(200).json(decks);
 }
+
+export const deleteDeck = async (req: Request, res: Response) => {
+    const {id} = req.params;
+    const deletedDeck = await Deck.findByIdAndDelete(id);
+    res.status(200).json({deck: deleteDeck});
+}
