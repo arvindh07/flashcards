@@ -44,3 +44,16 @@ export const getDeck = async(id:string) => {
     console.log("api get single ", json);
     return json;
 }
+
+export const createCard = async(deckId: string, text: string) => {
+    const response = await fetch(`${apiUrl}/decks/${deckId}/cards`,{
+        method: "POST",
+        body: JSON.stringify({text}),
+        headers: {
+            'Content-Type': "application/json"
+        }
+    })
+    const json = await response.json();
+    console.log("api post card", json);
+    return json;
+}

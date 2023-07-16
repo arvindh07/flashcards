@@ -1,16 +1,23 @@
 import { Link, useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
-import { getDeck } from "../../api/decks";
+import { createCard, getDeck } from "../../api/decks";
 
 
 const Cards = () => {
     const { deckId } = useParams();
     const [deck, setDeck] = useState<any>(null);
     const [cards, setCards] = useState([]);
+    const [text, setText] = useState("");
 
     const handleDeleteDeck = async (deleteId: string) => {
         // await deleteDeck(deleteId);
         // setDecks(decks?.filter((d: DeckInterface) => d._id !== deleteId))
+    }
+
+    const handleCreateCard = async () => {
+        const deck = await createCard(deckId!, text);
+        setCards(deck.cards);
+        setText("");
     }
 
     useEffect(() => {
@@ -24,10 +31,22 @@ const Cards = () => {
 
     return (
         <>
-        <div className="cards__header">
-            <Link to="/">Return to Decks</Link>
-            <h2 className="title">{deck?.title}</h2>
-        </div>
+            <div className="cards__header">
+                <Link to="/">Return to Decks</Link>
+                <h2 className="title">{deck?.title}</h2>
+            </div>
+            <div className="create_deck">
+                {/* <div className="error">{error && "Please fill the title"}</div> */}
+                <input
+                    type="text"
+                    name="text"
+                    value={text}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                        setText(e.target.value);
+                        // setError(false);
+                    }} />
+                <button onClick={handleCreateCard}>Create Card</button>
+            </div>
             <div className="display__decks">
                 {cards?.map((card: any) => {
                     return (
