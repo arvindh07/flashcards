@@ -28,6 +28,9 @@
     justify-content: center;
     transition: all 0.3s;
     height: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
 }
 .create_deck button:hover{
     background-color: rgba(65, 105, 225,0.5);
@@ -53,8 +56,16 @@
     align-items: center;
     cursor: pointer;
     transition: all 0.4s;
+    position: relative;
 }
 .deck:hover{
     transform: scale(1.02);
     box-shadow: rgba(249, 246, 246, 0.6) 0px 5px 35px;
+}
+.delete{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top:20px;
+    right:20px;
 }
