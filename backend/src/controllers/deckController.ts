@@ -24,5 +24,19 @@ export const getDecks = async (req: Request,res: Response) => {
 export const deleteDeck = async (req: Request, res: Response) => {
     const {id} = req.params;
     const deletedDeck = await Deck.findByIdAndDelete(id);
-    res.status(200).json({deck: deleteDeck});
+    res.status(200).json({deck: deletedDeck});
+}
+
+export const createCard = async (req: Request, res: Response) => {
+    const {deckId} = req.params;
+    const deck = await Deck.findById(deckId);
+    if(!deck){
+        return res.status(400).json({
+            "message": "Not deck found"
+        })
+    }
+    const {text} = req.body;
+    deck.cards.push({text});
+    await deck.save();
+    res.status(200).json(deck);
 }
