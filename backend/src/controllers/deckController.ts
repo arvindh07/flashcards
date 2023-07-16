@@ -3,6 +3,8 @@ import Deck from "../models/Deck";
 
 export const createDeck = async (req: Request, res: Response) => {
     const {title} = req.body;
+    console.log(req.body);
+    
     if(!title){
         return res.status(400).json({
             "error": "Title must be filled"

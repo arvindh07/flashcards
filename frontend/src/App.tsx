@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css';
 import CreateDeck from './components/CreateDeck/CreateDeck.tsx';
 
