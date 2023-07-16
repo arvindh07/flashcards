@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useState } from "react";
+import "./CreateDeck.css"
 
 const CreateDeck = () => {
     const [title, setTitle] = useState<string>("");
     return (
-        <div>
+        <div className="create_deck">
             <input
                 type="text"
                 name="title"
