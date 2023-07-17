@@ -1,1 +1,1 @@
-export const apiUrl =  "http://localhost:5002";
+export const apiUrl = "https://api-flashcards.onrender.com/";
