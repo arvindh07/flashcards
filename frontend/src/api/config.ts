@@ -1,1 +1,1 @@
-export const apiUrl = "https://api-flashcards.onrender.com/";
+export const apiUrl = "https://api-flashcards.onrender.com";
